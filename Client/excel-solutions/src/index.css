@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.high-contrast {
+  background-color: black;
+  color: white;
+}
+
+.high-contrast a {
+  color: orange; /* Change link colors for better visibility */
+}
+
+.high-contrast header {
+  background-color: darkgray; /* Adjust header color */
+}
+
+.high-contrast button {
+  background-color: black; /* Button background for high contrast */
+  color: white; /* Button text for high contrast */
+}
+
