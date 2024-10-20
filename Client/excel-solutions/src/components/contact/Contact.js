@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'; // Import framer-motion
 
 const ContactUs = ({ text, language, handleSubmit, formStatus }) => {
   return (
-    <section className="py-16 bg-white">
+    <section id="contact" className="py-16 bg-white">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -77,6 +77,16 @@ const ContactUs = ({ text, language, handleSubmit, formStatus }) => {
               className="mt-4 text-green-600 text-center"
             >
               {text[language].formSubmitted}
+            </motion.p>
+          )}
+            {formStatus === 'formTimeError' && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="mt-4 text-red-600 text-center"
+            >
+              {text[language].formTimeError}
             </motion.p>
           )}
           {formStatus === 'error' && (

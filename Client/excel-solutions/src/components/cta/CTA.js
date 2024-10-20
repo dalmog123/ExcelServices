@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'; // Import framer-motion
 
 const CTA = ({ text, language, schedulingLink }) => {
   return (
-    <section id="contact" className="py-16 bg-gradient-to-br from-orange-500 to-red-600 text-white text-center">
+    <section id='cta' className="py-16 bg-gradient-to-br from-orange-500 to-red-600 text-white text-center">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

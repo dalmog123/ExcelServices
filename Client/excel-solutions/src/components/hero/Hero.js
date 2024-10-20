@@ -32,7 +32,7 @@ const Hero = ({ text, language, opacity, scale }) => {
           className="text-center"
         >
           <a
-            href="#contact"
+            href="#cta"
             className="bg-white text-orange-500 py-3 px-8 rounded-full text-lg font-semibold hover:bg-gray-100 transition duration-300 inline-block"
           >
             {text[language].freeConsultation}

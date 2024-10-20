@@ -28,10 +28,22 @@
   color: #61dafb;
 }
 
+/* app.css */
+.transition {
+  transition: transform 0.3s ease;
+}
+
+/* Optional: specify transition for opacity if you find flickering persists */
+.fade {
+  transition: opacity 0.3s ease-in-out;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { useScroll, useTransform } from 'framer-motion'
 import { Sparkles, Code, HeadphonesIcon, FileText} from 'lucide-react'
+import { collection, addDoc, Timestamp, setDoc, doc, getDocs, query, where } from 'firebase/firestore';
+import { db } from './firebase/firebaseConfig'; // Import your Firestore db
 import Footer from './components/footer/Footer'
 import Header from './components/header/Header'
 import MobileMenu from './components/mobileMenu/MobileMenu'
@@ -76,6 +78,7 @@ export default function ExcelSolutionsApp() {
       contactInfo: 'Contact: dalmog123@gmail.com | Phone: (+972) 54-5999731',
       formSubmitted: 'Thank you! Your message has been sent.',
       formError: 'Oops! There was an error sending your message. Please try again.',
+      formTimeError : 'You are not allowed to submit a message at this time. Please wait a minute and try again.',
       excelExamplesTitle: 'Excel Formula Examples',
       excelExamples: [
         {
@@ -147,15 +150,18 @@ export default function ExcelSolutionsApp() {
       teamMembers: [
         {
           name: 'אלמוג דרור', role: 'מומחה לאקסל וחדשנות', image: 'https://media.licdn.com/dms/image/v2/D4D03AQEX_J1EwNBLVQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711562619187?e=1734566400&v=beta&t=duhfgTaJ-xkqZ9kz9MjXZ6GrCE2NEDzBsvNEUfG9_70',
-          linkedin: 'https://www.linkedin.com/in/almogdror/'
+          linkedin: 'https://www.linkedin.com/in/almogdror/',
+           whatsApp : 'https://wa.me/972545999731'
         },
         {
           name: 'אורי דגן', role: 'מומחה לפיתוח עסקי', image: 'https://media.licdn.com/dms/image/v2/D4D03AQExXkJA2OLf5g/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1665434051000?e=1734566400&v=beta&t=r4z0GnrtZ4aKDHD0cPXtdS4HzPXBxrionmswpAJ4lJE',
-          linkedin: 'https://www.linkedin.com/in/ori-dagan-856078251/'
+          linkedin: 'https://www.linkedin.com/in/ori-dagan-856078251/',
+           whatsApp : 'https://wa.me/972543191601'
         },
         {
-          name: 'יובל חן', role: ' מומחה אוטומציות ופיתוח אתרים', image: 'https://media.licdn.com/dms/image/v2/D4D35AQFpJuPVZ5BFCQ/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1719785396149?e=1729918800&v=beta&t=bPkhl6KWkgfP1csASgHPIFZeoa6RPvM88DJL3c6iNJg',
-          linkedin: 'https://www.linkedin.com/in/yuval-chen/'
+          name: 'יובל חן', role: ' מומחה אוטומציות ופיתוח אתרים', image: 'https://media.licdn.com/dms/image/v2/D5603AQEPvEOHQRDJBQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1700061564317?e=1734566400&v=beta&t=lrQQqLnEu84_RR45FpWZEsFx-J29ZvwzrC0chvntNqo',
+          linkedin: 'https://www.linkedin.com/in/yuval-chen/',
+           whatsApp : 'https://wa.me/972546830556'
         }],
       testimonial: '"גם לכם האקסל מראה ש1/2= הראשון לפברואר? הגיע הזמן להבין איך להשתמש באקסל"',
       ctaTitle: '?מוכנים להצמיח את העסק שלכם בעזרת האקסל',
@@ -164,6 +170,7 @@ export default function ExcelSolutionsApp() {
       contactInfo: 'Contact: dalmog123@gmail.com | Phone: (+972) 54-5999731',
       formSubmitted: '.תודה! ההודעה שלך נשלחה',
       formError: '.אופס! אירעה שגיאה בשליחת ההודעה. אנא נסה שנית',
+      formTimeError : 'אינך מורשה לשלוח הודעה כרגע. אנא המתן דקה ולאחר מכן שלח שוב.',
       excelExamplesTitle: 'דוגמאות לנוסחאות אקסל',
       excelExamples: [
         {
@@ -249,29 +256,30 @@ export default function ExcelSolutionsApp() {
   
   
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    const formData = new FormData(event.target)
-    const data = Object.fromEntries(formData.entries())
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
+        // Create a document reference using the email as the document ID
+        const docRef = doc(db, 'contacts', data.email); // Use the email as the document ID
 
-      if (response.ok) {
-        setFormStatus('success')
-      } else {
-        setFormStatus('error')
-      }
+        // Save or update the form data in Firestore
+        await setDoc(docRef, {
+            name: data.name,
+            email: data.email,
+            message: data.message,
+            timestamp: Timestamp.now(), // Ensure Firestore Timestamp is used
+        }, { merge: true }); // Merge to update fields instead of overwriting completely
+
+        // Set success status
+        setFormStatus('success');
     } catch (error) {
-      console.error('Error:', error)
-      setFormStatus('error')
+        console.error('Error saving to Firestore:', error);
+        setFormStatus('error');
     }
-  }
+};
+
 
   return (
     <div className={`font-sans text-gray-900 ${language === 'he' ? 'rtl' : 'ltr'} overflow-x-hidden`}>
