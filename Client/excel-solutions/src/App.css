@@ -38,6 +38,26 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+/* styles.css or your relevant stylesheet */
+.question-mark {
+  white-space: nowrap;
+  /* Prevent line breaks at this element */
+}
+
+.rtl {
+  direction: rtl;
+  text-align: center;
+}
+
+.rrtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: center;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -3,6 +3,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion'; // Import framer-motion
 
 const MobileMenu = ({ isMenuOpen, handleScroll, toggleMenu, text, language, toggleLanguage }) => {
+  const isHebrew = language === 'he';
   return (
     <AnimatePresence>
       {isMenuOpen && (
@@ -11,7 +12,7 @@ const MobileMenu = ({ isMenuOpen, handleScroll, toggleMenu, text, language, togg
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden fixed inset-0 z-40 bg-white bg-opacity-95 backdrop-blur-md"
+          className={`md:hidden fixed inset-0 z-40 bg-white bg-opacity-95 backdrop-blur-md ${isHebrew ? 'rrtl' : ''}`}
         >
           <div className="container mx-auto px-4 py-20">
             <ul className="space-y-6">
@@ -38,9 +39,9 @@ const MobileMenu = ({ isMenuOpen, handleScroll, toggleMenu, text, language, togg
               >
                 <button
                   onClick={() => { toggleLanguage(); toggleMenu(); }}
-                  className="block w-full text-left text-2xl font-semibold text-gray-800 hover:text-orange-500 transition duration-300"
+                  className={`block w-full text-left text-2xl font-semibold text-gray-800 hover:text-orange-500 transition duration-300 ${isHebrew ? 'rrtl' : ''}`}
                 >
-                  {language === 'en' ? 'Switch to Hebrew' : 'עבור לאנגלית'}
+                  {language === 'he' ? 'Switch to English' : 'עבור לעברית'}
                 </button>
               </motion.li>
             </ul>

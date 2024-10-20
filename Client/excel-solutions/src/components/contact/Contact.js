@@ -3,8 +3,11 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion'; // Import framer-motion
 
 const ContactUs = ({ text, language, handleSubmit, formStatus }) => {
+
+  const isHebrew = language === 'he';
+
   return (
-    <section id="contact" className="py-16 bg-white">
+    <section id="contact" className={`py-16 bg-white ${isHebrew ? 'rrtl' : ''}`}>
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -20,7 +23,7 @@ const ContactUs = ({ text, language, handleSubmit, formStatus }) => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-lg text-center mb-8"
         >
-          {text[language].contactInfo}
+          {/* {text[language].contactInfo} */}
         </motion.p>
         <motion.form
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +33,7 @@ const ContactUs = ({ text, language, handleSubmit, formStatus }) => {
           onSubmit={handleSubmit}
         >
           <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700 font-bold mb-2">Name</label>
+            <label htmlFor="name" className="block text-gray-700 font-bold mb-2">{text[language].contactFormat.name}</label>
             <input
               type="text"
               id="name"
@@ -40,7 +43,7 @@ const ContactUs = ({ text, language, handleSubmit, formStatus }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
+            <label htmlFor="email" className="block text-gray-700 font-bold mb-2">{text[language].contactFormat.email}</label>
             <input
               type="email"
               id="email"
@@ -50,7 +53,7 @@ const ContactUs = ({ text, language, handleSubmit, formStatus }) => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Message</label>
+            <label htmlFor="message" className="block text-gray-700 font-bold mb-2">{text[language].contactFormat.message}</label>
             <textarea
               id="message"
               name="message"
@@ -65,7 +68,7 @@ const ContactUs = ({ text, language, handleSubmit, formStatus }) => {
             whileTap={{ scale: 0.95 }}
             className="w-full bg-orange-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-orange-600 transition duration-300"
           >
-            Send Message
+           {text[language].contactFormat.button}
           </motion.button>
         </motion.form>
         <AnimatePresence>

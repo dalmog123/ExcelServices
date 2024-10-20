@@ -15,7 +15,7 @@ const Hero = ({ text, language, opacity, scale }) => {
           transition={{ delay: 0.2 }}
           className="text-4xl md:text-6xl font-bold mb-4 text-center"
         >
-          {text[language].heroTitle}
+         {text[language].heroTitle}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -23,7 +23,7 @@ const Hero = ({ text, language, opacity, scale }) => {
           transition={{ delay: 0.4 }}
           className="text-xl md:text-2xl mb-8 text-center"
         >
-          {text[language].heroSubtitle}
+         {text[language].heroSubtitle}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -14,10 +14,11 @@ import Team from './components/team/Team'
 import CTA from './components/cta/CTA'
 import ContactUs from './components/contact/Contact'
 import ExcelExamples from './components/excelExamples/ExcelExamples'
+import './App.css';
 
 export default function ExcelSolutionsApp() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [language, setLanguage] = useState('en')
+  const [language, setLanguage] = useState('he')
   const [formStatus, setFormStatus] = useState('')
   const [currentExample, setCurrentExample] = useState(0)
 
@@ -76,6 +77,7 @@ export default function ExcelSolutionsApp() {
       ctaText: "Let's discuss how we can optimize your Excel workflows and boost your business efficiency.",
       scheduleConsultation: 'Schedule Your Free Consultation',
       contactInfo: 'Contact: dalmog123@gmail.com | Phone: (+972) 54-5999731',
+      contactFormat: {name : "Name:", email: "Email:", message:"Message:", button: "Send Message"},
       formSubmitted: 'Thank you! Your message has been sent.',
       formError: 'Oops! There was an error sending your message. Please try again.',
       formTimeError : 'You are not allowed to submit a message at this time. Please wait a minute and try again.',
@@ -107,9 +109,9 @@ export default function ExcelSolutionsApp() {
           description: 'XLOOKUP is a more versatile and powerful successor to VLOOKUP. It can look both vertically and horizontally, and even in reverse order.',
         },
         {
-          formula: '=SUMPRODUCT((criteria_range1=criteria1)*(criteria_range2=criteria2)*value_range)',
-          title: 'SUMPRODUCT for Complex Calculations',
-          description: 'SUMPRODUCT can perform complex calculations involving multiple criteria and ranges. It\'s great for summing values based on multiple conditions without helper columns.',
+          formula: '=SUMPRODUCT(array1,[array2],...)',
+          title: 'SUMPRODUCT for Quick Calculations',
+          description: 'The Excel SUMPRODUCT function multiplies ranges or arrays together and returns the sum of products.',
         },
         {
           formula: '=IFERROR(value, value_if_error)',
@@ -129,8 +131,9 @@ export default function ExcelSolutionsApp() {
       benefits: 'יתרונות',
       team: 'הצוות שלנו',
       contact: 'צור קשר',
+      contactFormat: {name : "שם:", email: "אמייל:", message:"הודעה:", button: "שלח הודעה"},
       heroTitle: 'האיצו את העסק שלכם עם פתרונות אקסל מקצועיים',
-      heroSubtitle: '.מפיתוח כלים מותאמים אישית ועד הטמעת תהליכי עבודה, נעזור לכם לייעל את העסק שלכם',
+      heroSubtitle: 'מפיתוח כלים מותאמים אישית ועד הטמעת תהליכי עבודה, נעזור לכם לייעל את העסק שלכם',
       freeConsultation: 'לשיחת ייעוץ חינם',
       servicesTitle: 'השירותים שלנו',
       servicesList: [
@@ -139,7 +142,7 @@ export default function ExcelSolutionsApp() {
         { title: 'תמיכה טכנית וייעוץ', description: 'ייעוץ עסקי ותמיכה טכנית בהטמעת תהליכים', icon: <Sparkles /> },
         { title: 'טמפלייטים לאקסל', description: 'ניצור לכם טמלייטים מותאמים אישית למשימות מורכבות', icon: <FileText /> },
       ],
-      benefitsTitle: '?למה לבחור בשירותים שלנו',
+      benefitsTitle: 'למה לבחור בשירותים שלנו?',
       benefitsList: [
         { title: 'חיסכון בזמן', description: 'נבנה לכם אוטומציה עבור משימות טכניות מורכבות', icon: '⏱️' },
         { title: 'הפחתת טעויות', description: 'צמצמו טעויות אנוש בהזנת נתונים ידנית וחישובים מסורבלים', icon: '✅' },
@@ -164,8 +167,8 @@ export default function ExcelSolutionsApp() {
            whatsApp : 'https://wa.me/972546830556'
         }],
       testimonial: '"גם לכם האקסל מראה ש1/2= הראשון לפברואר? הגיע הזמן להבין איך להשתמש באקסל"',
-      ctaTitle: '?מוכנים להצמיח את העסק שלכם בעזרת האקסל',
-      ctaText: ".בואו נדבר איך נוכל לעזור לכם לייעל את תהליכי העבודה באקסל ולהגביר את היעילות שלכם",
+      ctaTitle: 'מוכנים להצמיח את העסק שלכם בעזרת אקסל?',
+      ctaText: " נוכל לעזור לכם לייעל את תהליכי העבודה באקסל ולהגביר את היעילות שלכם",
       scheduleConsultation: 'קבעו שיחת ייעוץ חינם',
       contactInfo: 'Contact: dalmog123@gmail.com | Phone: (+972) 54-5999731',
       formSubmitted: '.תודה! ההודעה שלך נשלחה',
@@ -175,43 +178,43 @@ export default function ExcelSolutionsApp() {
       excelExamples: [
         {
           formula: '=INDEX(reference, MATCH(search_key, range, search_type), [MATCH(search_key, range, search_type)])',
-          title: 'שילוב INDEX-MATCH',
-          description: 'במצבים בהם שימוש בפונקציית החיפוש האנכי או אופקי לא עובד, ניתן להשתמש בשילוב הזה כדי למצוא מידע גם במערך דו מימדי',
+          title: 'INDEX-MATCH שילוב',
+          description: 'במצבים בהם שימוש בפונקציית VLOOKUP לא עובד, ניתן להשתמש בשילוב הזה כדי למצוא מידע גם במערך דו מימדי',
         },
         {
           formula: '=SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2, ...])',
           title: 'SUMIFS לקריטריונים מרובים',
-          description: 'SUMIFS מאפשר לסכום ערכים העומדים במספר קריטריונים. מצוין ליצירת דוחות דינמיים וניתוח נתונים על בסיס תנאים שונים.',
+          description: 'מאפשר לסכום ערכים העומדים במספר קריטריונים. מצוין ליצירת דוחות דינמיים וניתוח נתונים על בסיס תנאים שונים.',
         },
         {
           formula: '=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])',
           title: 'VLOOKUP לחיפושים אנכיים',
-          description: 'VLOOKUP משמש למציאת נתונים בטבלה או טווח לפי שורה. מושלם לאחזור מידע ממסדי נתונים גדולים על בסיס ערך חיפוש ספציפי.',
+          description: 'משמש למציאת נתונים בטבלה או טווח לפי שורה. מושלם לאחזור מידע ממסדי נתונים גדולים על בסיס ערך חיפוש ספציפי.',
         },
         {
           formula: '=FILTER(array, include, [if_empty])',
           title: 'FILTER לחילוץ נתונים דינמי',
-          description: 'פונקציית FILTER מאפשרת לחלץ נתונים העומדים בקריטריונים ספציפיים. כלי חזק ליצירת דוחות דינמיים מבוססי קריטריונים.',
+          description: 'מאפשרת לחלץ נתונים העומדים בקריטריונים ספציפיים. כלי חזק ליצירת דוחות דינמיים מבוססי קריטריונים.',
         },
         {
           formula: '=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])',
           title: 'XLOOKUP לחיפושים מתקדמים',
-          description: 'XLOOKUP הוא יורש חזק וגמיש יותר ל-VLOOKUP. הוא יכול לחפש אנכית ואופקית, ואפילו בסדר הפוך.',
+          description: ' XLOOKUP היא נוסחא חזקה יותק מ VLOOKUP מכיוון שהיא יכולה לחפש ערכים אנכית ואופקית בטווח המוגדר.',
         },
         {
-          formula: '=SUMPRODUCT((criteria_range1=criteria1)*(criteria_range2=criteria2)*value_range)',
-          title: 'SUMPRODUCT  לחישובים מורכבים',
-          description: 'SUMPRODUCT יכול לבצע חישובים מורכבים הכוללים קריטריונים וטווחים מרובים. מצוין לסיכום ערכים על בסיס תנאים מרובים ללא עמודות עזר.',
+          formula: '=SUMPRODUCT(array1,[array2],...)',
+          title: 'SUMPRODUCT לחישוב מהיר',
+          description: 'מאפשר לקחת שני מערכים/ טווחים או יותר, להכפיל את הערכים שבהם וסוכם את התוצאה.',
         },
         {
           formula: '=IFERROR(value, value_if_error)',
           title: 'IFERROR לטיפול בשגיאות',
-          description: 'IFERROR משמש ללכידת שגיאות בנוסחאות וטיפול בהן. שימושי לשמירה על גיליונות נקיים ומקצועיים על ידי הצגת הודעות מותאמות אישית במקום ערכי שגיאה.',
+          description: 'משמש ללכידת שגיאות בנוסחאות וטיפול בהן. שימושי לשמירה על גיליונות נקיים ומקצועיים על ידי הצגת הודעות מותאמות אישית במקום ערכי שגיאה.',
         },
         {
           formula: '=LET(name1, value1, name2, value2, ..., calculation)',
           title: 'LET לשיום חלקים בנוסחה',
-          description: 'פונקציית LET מאפשרת להקצות שמות לתוצאות חישוב. זה יכול להפוך נוסחאות מורכבות לקריאות יותר וקלות יותר לניפוי באגים.',
+          description: ' מאפשרת להקצות שמות לתוצאות חישוב. זה יכול להפוך נוסחאות מורכבות לקריאות יותר וקלות יותר לניפוי באגים.',
         },
       ],
     },
@@ -282,7 +285,7 @@ export default function ExcelSolutionsApp() {
 
 
   return (
-    <div className={`font-sans text-gray-900 ${language === 'he' ? 'rtl' : 'ltr'} overflow-x-hidden`}>
+    <div className={`font-sans text-gray-900 overflow-x-hidden`}>
       {/* Header */}
       <Header text={text} language={language} handleScroll={handleScroll} toggleLanguage={toggleLanguage} toggleMenu={toggleMenu} isMenuOpen={isMenuOpen}></Header>
 

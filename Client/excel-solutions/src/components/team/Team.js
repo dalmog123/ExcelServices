@@ -1,7 +1,7 @@
 // components/Team/Team.js
 import React from 'react';
 import { motion } from 'framer-motion'; // Import framer-motion
-import { Linkedin, Mail } from 'lucide-react'; // Assuming you're using lucide-react for icons
+import { Linkedin } from 'lucide-react'; // Assuming you're using lucide-react for icons
 import { FaWhatsapp } from 'react-icons/fa';
 
 const Team = ({ text, language }) => {
