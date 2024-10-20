@@ -131,7 +131,7 @@ export default function ExcelSolutionsApp() {
       benefits: 'יתרונות',
       team: 'הצוות שלנו',
       contact: 'צור קשר',
-      contactFormat: {name : "שם:", email: "אמייל:", message:"הודעה:", button: "שלח הודעה"},
+      contactFormat: {name : "שם:", email: "אימייל:", message:"הודעה:", button: "שלח הודעה"},
       heroTitle: 'האיצו את העסק שלכם עם פתרונות אקסל מקצועיים',
       heroSubtitle: 'מפיתוח כלים מותאמים אישית ועד הטמעת תהליכי עבודה, נעזור לכם לייעל את העסק שלכם',
       freeConsultation: 'לשיחת ייעוץ חינם',
@@ -199,7 +199,7 @@ export default function ExcelSolutionsApp() {
         {
           formula: '=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])',
           title: 'XLOOKUP לחיפושים מתקדמים',
-          description: ' XLOOKUP היא נוסחא חזקה יותק מ VLOOKUP מכיוון שהיא יכולה לחפש ערכים אנכית ואופקית בטווח המוגדר.',
+          description: ' XLOOKUP היא נוסחא חזקה יותר מ VLOOKUP מכיוון שהיא יכולה לחפש ערכים אנכית ואופקית בטווח המוגדר.',
         },
         {
           formula: '=SUMPRODUCT(array1,[array2],...)',
