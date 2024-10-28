@@ -71,6 +71,11 @@ export default function ExcelSolutionsApp() {
           name: 'Yuval Chen', role: 'Automation & Web Development Expert', image: 'https://media.licdn.com/dms/image/v2/D5603AQEPvEOHQRDJBQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1700061564317?e=1734566400&v=beta&t=lrQQqLnEu84_RR45FpWZEsFx-J29ZvwzrC0chvntNqo',
           linkedin: 'https://www.linkedin.com/in/yuval-chen/',
            whatsApp : 'https://wa.me/972546830556'
+        },
+        {
+          name: 'Aviv Ben Simchon', role: 'Tax Expert', image: 'https://media.licdn.com/dms/image/v2/C5603AQF8auC-AT_Dnw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1639866425888?e=1735776000&v=beta&t=ijXrXsBrAPQjebIhNZpu5aTFg9zRw4pO7xNQESArfgQ',
+          linkedin: 'https://www.linkedin.com/in/aviv-ben-simchon-7685b6179/',
+           whatsApp : 'https://wa.me/972542643546'
         }],
       testimonial: '"[Your Company] transformed our Excel processes. We\'ve cut report generation time by 75% and significantly reduced errors."',
       ctaTitle: 'Ready to Excel in Excel?',
@@ -165,6 +170,11 @@ export default function ExcelSolutionsApp() {
           name: 'יובל חן', role: ' מומחה אוטומציות ופיתוח אתרים', image: 'https://media.licdn.com/dms/image/v2/D5603AQEPvEOHQRDJBQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1700061564317?e=1734566400&v=beta&t=lrQQqLnEu84_RR45FpWZEsFx-J29ZvwzrC0chvntNqo',
           linkedin: 'https://www.linkedin.com/in/yuval-chen/',
            whatsApp : 'https://wa.me/972546830556'
+        },
+        {
+          name: 'אביב בן שמחון', role: 'מומחה מס', image: 'https://media.licdn.com/dms/image/v2/C5603AQF8auC-AT_Dnw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1639866425888?e=1735776000&v=beta&t=ijXrXsBrAPQjebIhNZpu5aTFg9zRw4pO7xNQESArfgQ',
+          linkedin: 'https://www.linkedin.com/in/aviv-ben-simchon-7685b6179/',
+           whatsApp : 'https://wa.me/972542643546'
         }],
       testimonial: '"גם לכם האקסל מראה ש1/2= הראשון לפברואר? הגיע הזמן להבין איך להשתמש באקסל"',
       ctaTitle: 'מוכנים להצמיח את העסק שלכם בעזרת אקסל?',

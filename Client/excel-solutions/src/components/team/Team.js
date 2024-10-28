@@ -1,7 +1,6 @@
-// components/Team/Team.js
 import React from 'react';
-import { motion } from 'framer-motion'; // Import framer-motion
-import { Linkedin } from 'lucide-react'; // Assuming you're using lucide-react for icons
+import { motion } from 'framer-motion';
+import { Linkedin } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 const Team = ({ text, language }) => {
@@ -16,19 +15,19 @@ const Team = ({ text, language }) => {
         >
           {text[language].team}
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8"> {/* Set to 4 columns on md and up */}
           {text[language].teamMembers.map((member, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-xs mx-auto" // Centered and added max width
+              className="bg-white rounded-lg shadow-lg overflow-hidden w-full mx-auto"
             >
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-65 object-cover object-center" // Adjusted height for better aspect ratio
+                className="w-full h-65 object-cover object-center"
               />
               <div className="p-4">
                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
